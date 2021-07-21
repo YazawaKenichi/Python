@@ -1,0 +1,4 @@
+icmp
+TCP とか UDP とかのまた別のやつ
+
+tracert(コマンド)
