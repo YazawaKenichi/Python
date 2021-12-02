@@ -1,5 +1,6 @@
 OpenCV 必須
 
+##### Windows 向けの解説。
 [この主が作ったサイトの内容に加えて](https://kenichiyazawa.web.fc2.com/sources/How_to_Install_OpenCV.html)
 [このサイトで紹介されているインストール](https://techacademy.jp/magazine/51404)も行う必要があるかも。
 
@@ -16,5 +17,28 @@ python -m pip install --upgrade pip
 pip install opencv-python
 pip install opencv-contrib-python
 ```
-
 これでできるようになったはずだ。 
+
+##### Linux (Debian) 向け
+まずそもそも Linux で Python を使ったことが無い場合は、最新版の Python をインストールする必要がある。
+```
+$ sudo apt autoremove python
+```
+を用いて、デフォルトで入っている Python を消す。
+[こ↑こ↓](https://pythonlinks.python.jp/ja/index.html) から最新版 Python のソースファイルをダウンロードしてくる。
+```
+$ tar xJf Python-3.*.*.tar.xz
+$ cd Python-3.*.*
+$ ./configure
+$ make
+$ sudo make install
+```
+とすることで 最新版 Python がインストールされる。
+最新版ではなくてもとにかく Python3 が入っていれば OpenCV は使用可能。
+```
+$ pip install opencv-python
+```
+とすることで OpenCV がインストールされる。
+
+
+##### Mac は知らん。自分でググれ
