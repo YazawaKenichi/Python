@@ -3,7 +3,7 @@ import cv2
 thresh = 140 #閾値
 max = 300 #明度の最大値
 
-original = cv2.imread("1.jpg")
+original = cv2.imread("4.jpg")
 
 src = cv2.cvtColor(original, cv2.COLOR_RGB2GRAY)
 
