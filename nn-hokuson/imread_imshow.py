@@ -4,7 +4,7 @@
 import cv2
 
 #firstimg を作成（Mat 型変数）
-firstimg = cv2.imread("1.jpg")
+firstimg = cv2.imread("4.jpg")
 
 #ウィンドウでイメージファイルを表示
 #ウィンドウの名称は First Image, 表示するイメージは firstimg
