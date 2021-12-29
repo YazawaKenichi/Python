@@ -3,8 +3,9 @@
 import socket
 import pickle
 
+# socket.socket() でソケットを作成する
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)   # AF_INET で IPv4 AF_INET6 で IPv6 TCP で SOCK_STREAM
-s.connect((socket.gethostname(), 1235))
+s.connect((socket.gethostname(), 1235)) # 指定したサーバに接続を試みる
 # s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 
 full_msg = b''
