@@ -1,5 +1,7 @@
 import socket
 
+print(socket.gethostname())
+
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)   # AF_INET で IPv4 を指定する。(IPv6 の時は AF_INET6)
 # 今回は TCP プロトコルを利用するので SOCK_STREAM とする
 s.bind((socket.gethostname(), 1235))    # IPとポート番号を指定します  # bind ホスト名とポート番号を指定する
