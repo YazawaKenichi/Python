@@ -1,5 +1,5 @@
 import pyperclip
 
 # クリップボードへコピー
-pyperclip.copy('\x01')
+pyperclip.copy('\x0A')
 
